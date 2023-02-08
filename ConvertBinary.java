@@ -25,6 +25,16 @@ public class ConvertBinary {
         return decimal;
     }
 
+    public static int convertDecToOctal(int num) {
+        int octal = 0, i = 1;
+        while (num > 0) {
+            octal += (num % 8) * i;
+            num /= 8;
+            i *= 10;
+        }
+        return octal;
+    }
+
     public static String convertDecToHexa(int num) {
         String hex = "";
         while (num > 0) {
@@ -51,6 +61,11 @@ public class ConvertBinary {
         System.out.print("Enter a decimal number to convert to binary: ");
         int num = s.nextInt();
         System.out.println("Binary of " + num + " is " + convertDecToBinary(num));
+
+        System.out.print("Enter a decimal number to convert to Octal: ");
+        int num2 = s.nextInt();
+        System.out.println("Octal of " + num2 + " is " + convertDecToOctal(num2));
+
 
     }
 }
