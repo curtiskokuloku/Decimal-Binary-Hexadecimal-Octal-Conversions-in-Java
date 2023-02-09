@@ -35,6 +35,17 @@ public class ConvertBinary {
         return octal;
     }
 
+    public static int convertOctalToDec(int num) {
+        int result = 0;
+        int copy = num;
+        for (int i = 0; copy > 0; i++) {
+            int temp = copy % 10;
+            double p = Math.pow(8, i);
+            result += (temp * p);
+            copy /= 10;
+        }
+        return result;
+    }
     public static String convertDecToHexa(int num) {
         String hex = "";
         while (num > 0) {
@@ -43,6 +54,22 @@ public class ConvertBinary {
             num /= 16;
         }
         return hex;
+    }
+
+    public static int convertHexaToDec(String val) {
+        int len = val.length();
+        int base = 1;
+        int decimal = 0;
+        for (int i = len-1; i >= 0; i--) {
+            if (val.charAt(i) >= '0' && val.charAt(i) <= '9') {
+                decimal += (val.charAt(i) - 48) * base;
+                base *= 16;
+            } else if (val.charAt(i) >= 'A' && val.charAt(i) <= 'F') {
+                decimal += (val.charAt(i) - 55) * base;
+                base *= 16;
+            }
+        }
+        return decimal;
     }
 
     public static String convertBinaryToHexadecimal(String n) {
@@ -66,6 +93,14 @@ public class ConvertBinary {
         int num2 = s.nextInt();
         System.out.println("Octal of " + num2 + " is " + convertDecToOctal(num2));
 
+        System.out.print("Enter octal number to convert to decimal: ");
+        int num3 = s.nextInt();
+        System.out.println("Decimal of Octal is " + convertOctalToDec(num3));
 
+        s.nextLine();
+
+        System.out.print("Enter hexadecimal number to convert to decimal: ");
+        String num4 = s.nextLine();
+        System.out.println("Decimal of Octal is " + convertHexaToDec(num4));
     }
 }
