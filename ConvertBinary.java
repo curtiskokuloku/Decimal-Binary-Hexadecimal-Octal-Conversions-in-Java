@@ -1,9 +1,20 @@
+/**
+ * @brief  Implementations of conversion methods for binary numbers, decimals, octal and hexadecimal
+ * @author Curtis Kokuloku
+ * @note Used for one of my classes (CSCI 2021 - Machine Architecture)
+ */
+
 import java.util.Scanner;
 
 public class ConvertBinary {
 
     public static final String HEX_DIGITS = "0123456789ABCDEF";
 
+    /**
+     * @brief Convert decimal numbers to binary numbers
+     * @param  num: representing a decimal number
+     * @return a string value as binary number
+     */
     public static String convertDecToBinary(int num) {
         String binary = "";
         while (num > 0) {
@@ -13,6 +24,11 @@ public class ConvertBinary {
         return binary;
     }
 
+    /**
+     * @brief Convert binary numbers to decimal numbers
+     * @param  n: representing a binary number
+     * @return an integer value as decimal number
+     */
     public static int convertBinaryToDec(String n) {
         int decimal = 0;
         int power = 0;
@@ -25,6 +41,11 @@ public class ConvertBinary {
         return decimal;
     }
 
+    /**
+     * @brief Convert decimal numbers to octal numbers
+     * @param  num: representing a decimal number
+     * @return an integer value as octal number
+     */
     public static int convertDecToOctal(int num) {
         int octal = 0, i = 1;
         while (num > 0) {
@@ -35,6 +56,11 @@ public class ConvertBinary {
         return octal;
     }
 
+    /**
+     * @brief Convert octal numbers to decimal numbers
+     * @param  num: representing an octal number
+     * @return an integer value as decimal number
+     */
     public static int convertOctalToDec(int num) {
         int result = 0;
         int copy = num;
@@ -46,6 +72,12 @@ public class ConvertBinary {
         }
         return result;
     }
+
+    /**
+     * @brief Convert decimal numbers to hexadecimal numbers
+     * @param  num: representing a decimal number
+     * @return a string value as hexadecimal number
+     */
     public static String convertDecToHexa(int num) {
         String hex = "";
         while (num > 0) {
@@ -56,6 +88,11 @@ public class ConvertBinary {
         return hex;
     }
 
+    /**
+     * @brief Convert hexadecimal numbers to decimal numbers
+     * @param  val: representing a hexadecimal number
+     * @return an integer value as decimal number
+     */
     public static int convertHexaToDec(String val) {
         int len = val.length();
         int base = 1;
@@ -72,6 +109,11 @@ public class ConvertBinary {
         return decimal;
     }
 
+    /**
+     * @brief Convert binary numbers to hexadecimal numbers
+     * @param  n: representing a binary number
+     * @return a string value as hexadecimal number
+     */
     public static String convertBinaryToHexadecimal(String n) {
         int decimal = convertBinaryToDec(n);
         System.out.println("Binary to Decimal: " + decimal);
